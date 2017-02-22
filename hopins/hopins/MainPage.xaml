@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="btAdd" Content="Add Product" HorizontalAlignment="Left" Height="366" Margin="149,178,0,0" VerticalAlignment="Top" Width="264" Click="btAdd_Click"/>
+        <Button x:Name="btProduct" Content="My Product" HorizontalAlignment="Left" Height="366" Margin="506,178,0,0" VerticalAlignment="Top" Width="264" Click="btProduct_Click"/>
+        <Button x:Name="btOrder" Content="Order Management" HorizontalAlignment="Left" Height="366" Margin="870,178,0,0" VerticalAlignment="Top" Width="264" Click="btOrder_Click"/>
 
     </Grid>
 </Page>
