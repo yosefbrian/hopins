@@ -7,8 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="84" Margin="161,77,0,0" VerticalAlignment="Top" Width="187" Click="button_Click"/>
+        <CaptureElement x:Name="captureElement" Margin="0,-10,0,10"/>
 
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <CaptureElement x:Name="capturePreview" Width="320" Height="240" Margin="20 20 20 20"/>
+                <Image x:Name="imagePreivew" Stretch="Fill"  Width="320" Height="240" Margin="20 20 20 20" />
+            </StackPanel>
+        </Grid>
+
+
+        <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="100,0,0,0">
+
+
+            
+
+            <StackPanel Orientation="Horizontal">
+                <Button Click="InitCamera_Click" Content="Initialize Camera" />
+                <Button Click="StartCapturePreview_Click" Content="Start Capture Preview" />
+                <Button Click="CapturePhoto_Click" Content="Capture Photo"/>
+                <Button Click="StopCapturePreview_Click" Content="Stop Capture Preview" />
+            </StackPanel>
+
+        </Grid>
+        
     </Grid>
 </Page>
