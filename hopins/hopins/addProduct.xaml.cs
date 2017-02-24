@@ -26,5 +26,10 @@ namespace hopins
         {
             this.InitializeComponent();
         }
+
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("microsoft.windows.camera:"));
+        }
     }
 }

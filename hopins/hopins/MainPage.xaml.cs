@@ -29,12 +29,12 @@ namespace hopins
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(myProduct), null);
+            this.Frame.Navigate(typeof(addProduct), null);
         }
 
         private void btProduct_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(addProduct), null);
+            this.Frame.Navigate(typeof(myProduct), null);
         }
 
         private void btOrder_Click(object sender, RoutedEventArgs e)
