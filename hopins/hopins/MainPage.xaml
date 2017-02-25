@@ -8,9 +8,27 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="btAdd" Content="Add Product" HorizontalAlignment="Left" Height="366" Margin="149,178,0,0" VerticalAlignment="Top" Width="264" Click="btAdd_Click"/>
-        <Button x:Name="btProduct" Content="My Product" HorizontalAlignment="Left" Height="366" Margin="506,178,0,0" VerticalAlignment="Top" Width="264" Click="btProduct_Click"/>
-        <Button x:Name="btOrder" Content="Order Management" HorizontalAlignment="Left" Height="366" Margin="870,178,0,0" VerticalAlignment="Top" Width="264" Click="btOrder_Click"/>
+        <Button x:Name="btAdd"  HorizontalAlignment="Left" Height="441" Margin="107,175,0,0" VerticalAlignment="Top" Width="329" Click="btAdd_Click" FontSize="36" Background="#FF30B3DD" >
+            <StackPanel>
+                <BitmapIcon UriSource="ms-appx:/Assets/add.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
+                <TextBlock Text="Add Product" TextWrapping="Wrap" Foreground="White" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="btProduct" HorizontalAlignment="Left" Height="441" Margin="473,175,0,0" VerticalAlignment="Top" Width="330" Click="btProduct_Click" FontSize="24" Background="#737373" Foreground="White">
+            <StackPanel>
+                <BitmapIcon UriSource="ms-appx:/Assets/tool.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
+                <TextBlock Text="My Product" TextWrapping="Wrap" FontSize="36" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="btOrder" HorizontalAlignment="Left" Height="441" Margin="843,175,0,0" VerticalAlignment="Top" Width="329" Click="btOrder_Click" FontSize="36" Background="#7cbb00" Foreground="White">
+            <StackPanel>
+                <BitmapIcon UriSource="ms-appx:/Assets/stack.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
+                <TextBlock Text="Order Management" TextWrapping="Wrap" />
+            </StackPanel>
+        </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Hopins Store" VerticalAlignment="Top" FontSize="48"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="1092,40,0,0" VerticalAlignment="Top" Width="80" Source="Assets/user.png"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="996,65,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" FontSize="36"/>
 
     </Grid>
 </Page>
