@@ -8,6 +8,7 @@ using Windows.Foundation.Collections;
 using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,6 +30,7 @@ namespace hopins
         public myProduct()
         {
             this.InitializeComponent();
+            
         }
 
         Windows.Media.Capture.MediaCapture captureManager;

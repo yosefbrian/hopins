@@ -7,7 +7,40 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    
+    
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <ListView Width="700" SelectionMode="Multiple" Margin="100">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid Background="Yellow">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="54"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Assets/placeholder.png" Width="44" Height="44" 
+                       HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind}" Foreground="Blue" 
+                           FontSize="36" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="Green"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <x:String>Item 1</x:String>
+            <x:String>Item 2</x:String>
+            <x:String>Item 3</x:String>
+            <x:String>Item 4</x:String>
+            <x:String>Item 5</x:String>
+        </ListView>
+
+
+
 
     </Grid>
 </Page>

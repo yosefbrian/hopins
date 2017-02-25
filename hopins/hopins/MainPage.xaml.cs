@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,19 +28,40 @@ namespace hopins
             this.InitializeComponent();
         }
 
+        private void backButton()
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            currentView.BackRequested += backButton_Tapped;
+        }
+
+
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(addProduct), null);
+            backButton();
         }
 
         private void btProduct_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(myProduct), null);
+            backButton();
         }
 
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(orderManagement), null);
+            backButton();
+            
         }
+
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
+        {
+
+            if (Frame.CanGoBack) Frame.GoBack();
+
+        }
+
     }
 }
