@@ -7,18 +7,43 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#E1E1E1">
 
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="My Products" VerticalAlignment="Top" FontSize="48"/>
         <GridView x:Name="gridView" HorizontalAlignment="Center" Margin="110,140,110,0" VerticalAlignment="Top" Width="1041" Height="458" ScrollViewer.VerticalScrollBarVisibility="Visible" Padding="50,20,-5,10" ScrollViewer.HorizontalScrollBarVisibility="Visible" ReorderMode="Enabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-            <StackPanel Height="260" Width="235" Margin="5,5,5,5">
-                <Image x:Name="image" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Test" HorizontalAlignment="Right" Width="235" FontSize="20"/>
-            </StackPanel>
-            <Image x:Name="image1" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-            <Image x:Name="image2" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-            <Image x:Name="image3" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-            
+            <Grid>
+                <Image x:Name="image" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image1" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image2" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image3" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+
+            <Grid>
+                <Image x:Name="image4" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image5" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image6" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
+            <Grid>
+                <Image x:Name="image7" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Sample"/>
+            </Grid>
 
         </GridView>
 
