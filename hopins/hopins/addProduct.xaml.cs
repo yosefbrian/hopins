@@ -35,6 +35,21 @@ namespace hopins
             this.InitializeComponent();
         }
 
+        private async void Page_Loaded(Object sender, RoutedEventArgs e)
+        {
+            if(captureManager == null)
+            { 
+            captureManager = new MediaCapture();
+            await captureManager.InitializeAsync();
+            }
+
+            capturePreview.Source = captureManager;
+            await captureManager.StartPreviewAsync();
+
+
+
+        }
+
 
         Windows.Media.Capture.MediaCapture captureManager;
 
@@ -46,6 +61,7 @@ namespace hopins
 
         async private void StartCapturePreview_Click(object sender, RoutedEventArgs e)
         {
+
             capturePreview.Source = captureManager;
             await captureManager.StartPreviewAsync();
         }

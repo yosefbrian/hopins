@@ -23,7 +23,7 @@
         <Button x:Name="btOrder" HorizontalAlignment="Left" Height="441" Margin="843,175,0,0" VerticalAlignment="Top" Width="329" Click="btOrder_Click" FontSize="36" Background="#7cbb00" Foreground="White">
             <StackPanel>
                 <BitmapIcon UriSource="ms-appx:/Assets/stack.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
-                <TextBlock Text="Order Management" TextWrapping="Wrap" />
+                <TextBlock Text="Order Management" TextAlignment="Center" TextWrapping="Wrap" />
             </StackPanel>
         </Button>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Hopins Store" VerticalAlignment="Top" FontSize="48"/>
