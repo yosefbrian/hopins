@@ -9,10 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <StackPanel Orientation="Horizontal">
-            <CaptureElement x:Name="capturePreview" Width="320" Height="240" />
-            <Image x:Name="imagePreivew" Stretch="None" Width="320" Height="240" />
-        </StackPanel>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="My Products" VerticalAlignment="Top" FontSize="48"/>
+        <GridView x:Name="gridView" HorizontalAlignment="Center" Margin="110,140,110,0" VerticalAlignment="Top" Width="1041" Height="458" ScrollViewer.VerticalScrollBarVisibility="Visible" Padding="50,20,-5,10" ScrollViewer.HorizontalScrollBarVisibility="Visible" ReorderMode="Enabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <StackPanel Height="260" Width="235" Margin="5,5,5,5">
+                <Image x:Name="image" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+                <TextBlock Text="Test" HorizontalAlignment="Right" Width="235" FontSize="20"/>
+            </StackPanel>
+            <Image x:Name="image1" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+            <Image x:Name="image2" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+            <Image x:Name="image3" Height="260" Width="235" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
+            
+
+        </GridView>
 
     </Grid>
 </Page>
