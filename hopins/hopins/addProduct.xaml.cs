@@ -66,13 +66,17 @@ namespace hopins
             await captureManager.StartPreviewAsync();
         }
 
-        async private void StopCapturePreview_Click(object sender, RoutedEventArgs e)
-        {
-            await captureManager.StopPreviewAsync();
-        }
+        //async private void StopCapturePreview_Click(object sender, RoutedEventArgs e)
+        //{
+        //    await captureManager.StopPreviewAsync();
+        //}
+
+        int i = 0;
 
         async private void CapturePhoto_Click(object sender, RoutedEventArgs e)
         {
+           
+
             ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
 
             // create storage file in local app storage
@@ -86,8 +90,32 @@ namespace hopins
             // Get photo as a BitmapImage
             BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
 
-            // imagePreivew is a <Image> object defined in XAML
-            imagePreivew.Source = bmpImage;
+
+            if (i == 0)
+            {
+                imagePreivew.Source = bmpImage;
+                i++;
+            }
+
+
+            else if (i == 1)
+            {
+                imagePreivew2.Source = bmpImage;
+                i++;
+            }
+
+            else if (i == 2)
+            {
+                imagePreivew3.Source = bmpImage;
+                i++;
+            }
+
+            else
+            {
+                imagePreivew.Source = bmpImage;
+                i = 1;
+            }
+
         }
 
 

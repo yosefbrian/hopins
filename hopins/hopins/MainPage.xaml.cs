@@ -28,6 +28,19 @@ namespace hopins
             this.InitializeComponent();
         }
 
+        private async void Page_Loaded(Object sender, RoutedEventArgs e)
+        {
+            var element = new MediaElement();
+            var folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("MyFolder");
+            var file = await folder.GetFileAsync("welcome.wav");
+            var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+            element.SetSource(stream, "");
+            element.Play();
+        }
+
+
+
+
         private void backButton()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();

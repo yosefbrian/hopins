@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#E1E1E1">
         <Button x:Name="btAdd"  HorizontalAlignment="Left" Height="441" Margin="107,175,0,0" VerticalAlignment="Top" Width="329" Click="btAdd_Click" FontSize="36" Background="#FF30B3DD" >
             <StackPanel>
                 <BitmapIcon UriSource="ms-appx:/Assets/add.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />

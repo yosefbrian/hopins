@@ -118,9 +118,11 @@
   <ItemGroup>
     <Content Include="Assets\add.png" />
     <Content Include="Assets\arrows.png" />
+    <Content Include="Assets\product.jpg" />
     <Content Include="Assets\stack.png" />
     <Content Include="Assets\tool.png" />
     <Content Include="Assets\user.png" />
+    <Content Include="Assets\welcome.wav" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -151,6 +153,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyFolder\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
