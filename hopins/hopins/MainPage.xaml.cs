@@ -76,5 +76,9 @@ namespace hopins
 
         }
 
+        private void textBlock1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
