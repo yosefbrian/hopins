@@ -131,6 +131,15 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Sound\addProductPage.wav" />
+    <Content Include="Sound\cost.wav" />
+    <Content Include="Sound\costResult.wav" />
+    <Content Include="Sound\describeItem.wav" />
+    <Content Include="Sound\describeResult.wav" />
+    <Content Include="Sound\nameResult.wav" />
+    <Content Include="Sound\productName.wav" />
+    <Content Include="Sound\published.wav" />
+    <Content Include="Sound\welcome.wav" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -154,9 +163,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MyFolder\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
