@@ -28,9 +28,11 @@
                     <TextBlock FontSize="20" Margin="10,10,10,10" Text="Buyer's Name : Misbach Imaduddin"/>
                     <TextBlock FontSize="20" Margin="10,40,10,10" Text="Buyer's Address : Jl. Gadjah Mada H10, Yogyakarta, Indonesia"/>
                 </Grid>
+                
             </Grid>
 
         </GridView>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="506,655,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

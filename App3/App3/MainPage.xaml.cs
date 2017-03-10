@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -49,11 +50,7 @@ namespace App3
         {
             try
             {
-                string welcome = "welcome to the hopins store";
-                SpeechSynthesisStream synthesisStream = await synthesizer.SynthesizeTextToStreamAsync(welcome);
-                media.AutoPlay = true;
-                media.SetSource(synthesisStream, synthesisStream.ContentType);
-                media.Play();
+                await play("welcome to the hopins store");
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -67,9 +64,9 @@ namespace App3
                 await messageDialog.ShowAsync();
             }
 
+            
+                        
 
-            this.recognizer = new SpeechRecognizer();
-            await this.recognizer.CompileConstraintsAsync();
 
             //this.recognizer.Timeouts.InitialSilenceTimeout = TimeSpan.FromSeconds(5);
             //this.recognizer.Timeouts.EndSilenceTimeout = TimeSpan.FromSeconds(20);
@@ -82,7 +79,24 @@ namespace App3
 
             //var result = await this.recognizer.RecognizeWithUIAsync();
 
-            var result = await this.recognizer.RecognizeAsync();      
+        }
+
+        async void media_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            await recognize();
+
+        }
+
+        async Task recognize() {
+
+            if (this.recognizer == null)
+            {
+                this.recognizer = new SpeechRecognizer();
+            }            
+            
+            
+            await this.recognizer.CompileConstraintsAsync();
+            var result = await this.recognizer.RecognizeAsync();
 
             if (result.Text == "next")
             {
@@ -91,14 +105,20 @@ namespace App3
 
             else
             {
-                txtResults.Text = result.Text;
+                await play("i dont understand");
             }
+
 
 
         }
 
-
-
+        async Task play(string welcome)
+        {
+            SpeechSynthesisStream synthesisStream = await synthesizer.SynthesizeTextToStreamAsync(welcome);
+            media.AutoPlay = true;
+            media.SetSource(synthesisStream, synthesisStream.ContentType);
+            media.Play();
+        }
 
 
         async void button_Click(object sender, RoutedEventArgs e)

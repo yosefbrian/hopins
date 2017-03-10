@@ -5,9 +5,10 @@
     xmlns:local="using:hopins"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="#E1E1E1">
+        <MediaElement x:Name="media" AutoPlay="False" MediaEnded="media_MediaEnded"/>
         <Button x:Name="btAdd"  HorizontalAlignment="Left" Height="441" Margin="107,175,0,0" VerticalAlignment="Top" Width="329" Click="btAdd_Click" FontSize="36" Background="#FF30B3DD" >
             <StackPanel>
                 <BitmapIcon UriSource="ms-appx:/Assets/add.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
@@ -29,6 +30,7 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Hopins Store" VerticalAlignment="Top" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="1092,40,0,0" VerticalAlignment="Top" Width="80" Source="Assets/user.png"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="924,65,0,0" TextWrapping="Wrap" Text="Jon Hoper" VerticalAlignment="Top" FontSize="36" SelectionChanged="textBlock1_SelectionChanged"/>
+        <TextBlock x:Name="Test" HorizontalAlignment="Left" Margin="126,647,0,0" TextWrapping="Wrap" Text="What I hear..." VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

@@ -1,0 +1,28 @@
+<grammar version="1.0" xml:lang="en-US" root="rootRule"
+ xmlns="http://www.w3.org/2001/06/grammar">
+
+<rule id="playCommands">
+  	<ruleref uri="#navigation" />
+    <item> to</item>
+    <ruleref uri="#Page" />
+  </rule>
+
+<rule id="navigation">
+	<one-of>
+		<item> open </item>
+		<item> navigate </item>
+		<item> Go </item>
+	</one-of>
+</rule>
+
+<rule id="page">
+    <one-of>
+      <item> Add </item>
+      <item> Product </item>
+      <item> Order </item>
+    </one-of>
+  </rule>
+
+
+
+</grammar>
