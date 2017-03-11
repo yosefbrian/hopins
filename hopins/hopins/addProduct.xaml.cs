@@ -35,6 +35,7 @@ namespace hopins
         private SpeechSynthesizer synthesizer;
         private ResourceContext speechContext;
         private ResourceMap speechResourceMap;
+        private SpeechRecognizer _speechRecognizer;
 
         public addProduct()
         {
@@ -74,16 +75,104 @@ namespace hopins
                 await messageDialog.ShowAsync();
             }
 
+        }
 
-
+        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            this._speechRecognizer.Dispose();
+            this._speechRecognizer = null;
+            await captureManager.StopPreviewAsync();
 
         }
 
-        async void media_MediaEnded(object sender, RoutedEventArgs e)
+
+        
+
+            async void media_MediaEnded(object sender, RoutedEventArgs e)
         {
             try
             {
-                await recognize();
+                var speechRecognitionResult = await recognize();
+
+                if (speechRecognitionResult.Text == "product")
+                {
+                    this.Frame.Navigate(typeof(addProduct), null);
+                }
+
+                else if (speechRecognitionResult.Text == "manage")
+                {
+                    this.Frame.Navigate(typeof(myProduct), null);
+                }
+                else if (speechRecognitionResult.Text == "order")
+                {
+                    this.Frame.Navigate(typeof(orderManagement), null);
+                }
+                else if (speechRecognitionResult.Text == "exit")
+                {
+                    Application.Current.Exit();
+                }
+                else if (speechRecognitionResult.Text == "capture")
+                {
+                    Test.Text = speechRecognitionResult.Text;
+                    ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
+
+                    // create storage file in local app storage
+                    StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                        "TestPhoto.jpg",
+                        CreationCollisionOption.GenerateUniqueName);
+
+                    // take photo
+                    await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
+
+                    // Get photo as a BitmapImage
+                    BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
+
+
+                    if (i == 0)
+                    {
+                        imagePreivew.Source = bmpImage;
+                        i++;
+                    }
+
+
+                    else if (i == 1)
+                    {
+                        imagePreivew2.Source = bmpImage;
+                        i++;
+                    }
+
+                    else if (i == 2)
+                    {
+                        imagePreivew3.Source = bmpImage;
+                        i++;
+                    }
+
+                    else
+                    {
+                        imagePreivew.Source = bmpImage;
+                        i = 1;
+                    }
+
+                    await play("image captured");
+
+                }
+                else if (speechRecognitionResult.Text == "home" || speechRecognitionResult.Text=="back")
+                {
+                    Test.Text = speechRecognitionResult.Text;
+                    this.Frame.Navigate(typeof(MainPage), null);
+                }
+
+                else if (speechRecognitionResult.Text == null)
+                {
+                    Test.Text = speechRecognitionResult.Text;
+                    await play("Iam waiting for your response");
+                }
+                else
+                {
+                    Test.Text = speechRecognitionResult.Text;
+                    await play("i dont understand, Iam waiting for your response");
+                }
             }
             catch (Exception)
             {
@@ -93,75 +182,38 @@ namespace hopins
 
         }
 
-        async Task recognize()
+        private async Task<SpeechRecognitionResult> recognize()
         {
 
-            if (this.recognizer == null)
+            if (_speechRecognizer == null)
             {
-                this.recognizer = new SpeechRecognizer();
+                // Create an instance of SpeechRecognizer.
+                _speechRecognizer = new SpeechRecognizer();
+
+                var songs = new[] { "order", "product", "manage", "capture", "home", "exit", "back" };
+
+                // Generates the collection which we expect user will say one of.
+
+                // Create an instance of the constraint.
+                // Pass the collection and an optional tag to identify.
+                var playConstraint = new SpeechRecognitionListConstraint(songs);
+
+                // Add it into teh recognizer
+                _speechRecognizer.Constraints.Add(playConstraint);
+
+                // Then add the constraint for pausing and resuming.
+
+                //var pauseConstraint = new SpeechRecognitionListConstraint(new[] { "Pause", "Resume" }, "pauseAndResume");
+                //_speechRecognizer.Constraints.Add(pauseConstraint);
+
+                // Compile the dictation grammar by default.
+                await _speechRecognizer.CompileConstraintsAsync();
             }
 
+            // Start recognition and return the result.
+            return await _speechRecognizer.RecognizeAsync();
 
-            await this.recognizer.CompileConstraintsAsync();
-            var result = await this.recognizer.RecognizeAsync();
-
-            if (result.Text == "capture")
-            {
-                Test.Text = result.Text;
-                ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
-
-                // create storage file in local app storage
-                StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                    "TestPhoto.jpg",
-                    CreationCollisionOption.GenerateUniqueName);
-
-                // take photo
-                await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
-
-                // Get photo as a BitmapImage
-                BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
-
-
-                if (i == 0)
-                {
-                    imagePreivew.Source = bmpImage;
-                    i++;
-                }
-
-
-                else if (i == 1)
-                {
-                    imagePreivew2.Source = bmpImage;
-                    i++;
-                }
-
-                else if (i == 2)
-                {
-                    imagePreivew3.Source = bmpImage;
-                    i++;
-                }
-
-                else
-                {
-                    imagePreivew.Source = bmpImage;
-                    i = 1;
-                }
-
-                await play("image captured");
-
-            }
-            else if(result.Text=="home"){
-                Test.Text = result.Text;
-                this.Frame.Navigate(typeof(MainPage), null);
-            }
-
-            else
-            {
-                Test.Text = result.Text;
-                await play("i dont understand");
-
-            }
-
+           
         }
 
 
@@ -241,7 +293,7 @@ namespace hopins
 
         }
 
-        SpeechRecognizer recognizer;
+        
 
 
     }

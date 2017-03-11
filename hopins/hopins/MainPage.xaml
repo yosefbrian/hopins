@@ -29,7 +29,7 @@
         </Button>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Hopins Store" VerticalAlignment="Top" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="1092,40,0,0" VerticalAlignment="Top" Width="80" Source="Assets/user.png"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="924,65,0,0" TextWrapping="Wrap" Text="Jon Hoper" VerticalAlignment="Top" FontSize="36" SelectionChanged="textBlock1_SelectionChanged"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="924,65,0,0" TextWrapping="Wrap" Text="Jon Hoper" VerticalAlignment="Top" FontSize="36" />
         <TextBlock x:Name="Test" HorizontalAlignment="Left" Margin="126,647,0,0" TextWrapping="Wrap" Text="What I hear..." VerticalAlignment="Top"/>
 
     </Grid>

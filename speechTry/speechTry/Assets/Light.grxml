@@ -1,0 +1,38 @@
+﻿<grammar version="1.0" xml:lang="en-US" mode="voice" root="ruleColors" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+
+    <rule id="Control">
+    <one-of>
+        <item>
+            <ruleref uri="#TurnOn"/>
+        </item>
+        <item>
+            <ruleref uri="#TurnOff"/>
+        </item>
+    </one-of>
+</rule>
+
+	<rule id="TurnOn">
+    <item repeat="0-1">please</item>
+    <item>
+        <one-of>
+            <item>turn on the light</item>
+            <item>turn on light</item>
+            <item>light on</item>
+        </one-of>
+    </item>
+    <item repeat="0-1">please</item>
+</rule>
+
+<rule id="TurnOff">
+    <item repeat="0-1">please</item>
+    <item>
+        <one-of>
+            <item>turn off the light</item>
+            <item>turn off light</item>
+            <item>light off</item>
+        </one-of>
+    </item>
+    <item repeat="0-1">please</item>
+</rule>
+
+</grammar>
