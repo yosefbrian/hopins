@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="continous.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:continous"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Name="contentGrid"  Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Name="ContentStackPanel" Orientation="Horizontal" Margin="10,10,0,0" >
+                <TextBlock Text="Search" VerticalAlignment="Center"  Margin="10,0,0,0"></TextBlock>
+                <TextBox Name="tbSearch" VerticalAlignment="Center" Width="250" Margin="10,0,0,0" HorizontalAlignment="Center" TextChanged="tbSearch_TextChanged" ></TextBox>
+                <Button Margin="10,0,0,0" Name="btnSearch" Click="btnSearch_Click"  VerticalAlignment="Center">
+                    <Image Name="imgMode" Source="Assets/mic.png"  Width="15" ></Image>
+                </Button>
+            </StackPanel>
+            <ScrollViewer HorizontalScrollMode="Auto"   Grid.Row="1" Margin="10,10,0,0">
+                <ListView Name="lbxResult" ItemsSource="{Binding ViewModel.SourceData}"></ListView>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

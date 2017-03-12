@@ -19,13 +19,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace hopins
+namespace cobo_meneh
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class MainPage : Page
     {
         private CoreDispatcher dispatcher;
@@ -43,13 +40,13 @@ namespace hopins
 
 
 
-
+      
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+           
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            string welcome = "welcome to the hopins store. To add new product say product, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
+            string welcome = "welcome to the hopins store, to add new product say product, to manage your product say manage, and to manage your order say order";
 
             bool permissionGained = await AudioCapturePermissions.RequestMicrophonePermission();
             if (permissionGained)
@@ -96,7 +93,7 @@ namespace hopins
 
         private async Task InitializeRecognizer(Language recognize)
         {
-
+            
 
             if (speechRecognizer != null)
             {
@@ -109,7 +106,7 @@ namespace hopins
             try
             {
                 this.speechRecognizer = new SpeechRecognizer();
-                var grammar = new[] { "order", "product", "manage", "capture", "home", "exit", "help" };
+                var grammar = new[] { "order", "product", "manage", "capture", "home", "exit" };
                 var playConstraint = new SpeechRecognitionListConstraint(grammar);
                 speechRecognizer.Constraints.Add(playConstraint);
                 speechRecognizer.StateChanged += SpeechRecognizer_StateChanged;
@@ -145,7 +142,7 @@ namespace hopins
                     await messageDialog.ShowAsync();
                 }
             }
-
+            
         }
 
 
@@ -185,60 +182,14 @@ namespace hopins
             if (args.Result.Confidence == SpeechRecognitionConfidence.Medium ||
                 args.Result.Confidence == SpeechRecognitionConfidence.High || args.Result.Confidence == SpeechRecognitionConfidence.Low)
             {
-                await dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     resultTextBlock.Visibility = Visibility.Visible;
                     resultTextBlock.Text = args.Result.Text;
-                    if (args.Result.Text == "product")
-                    {
-                        this.Frame.Navigate(typeof(addProduct), null);
-                        backButton();
-                    }
-
-                    else if (args.Result.Text == "manage")
-                    {
-                        this.Frame.Navigate(typeof(myProduct), null);
-                        backButton();
-                    }
-
-                    else if (args.Result.Text == "order")
-                    {
-                        this.Frame.Navigate(typeof(myProduct), null);
-                        backButton();
-                    }
-                    else if (args.Result.Text == "help")
-                    {
-
-                        if (this.speechRecognizer != null)
-                        {
-                            if (isListening)
-                            {
-                                await this.speechRecognizer.ContinuousRecognitionSession.CancelAsync();
-                                isListening = false;
-                            }
-                            speechRecognizer.ContinuousRecognitionSession.Completed -= ContinuousRecognitionSession_Completed;
-                            speechRecognizer.ContinuousRecognitionSession.ResultGenerated -= ContinuousRecognitionSession_ResultGenerated;
-                            speechRecognizer.StateChanged -= SpeechRecognizer_StateChanged;
-                            this.speechRecognizer.Dispose();
-                            this.speechRecognizer = null;
-                        }
-                        string help = "welcome to the hopins store. To add new product say product, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
-                        play(help);
-                    }
-
-                    else if (args.Result.Text == "exit")
-                    {
-                        Application.Current.Exit();
-                    }
-                    else
-                    {
-                        resultTextBlock.Text = "I dont understand what you said";
-                    }
                 });
             }
 
-            else
-            {
+            else { 
                 await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     resultTextBlock.Visibility = Visibility.Visible;
@@ -265,7 +216,7 @@ namespace hopins
                     try
                     {
                         await speechRecognizer.ContinuousRecognitionSession.StartAsync();
-                        ContinuousRecoButtonText.Text = " Stop Listening";
+                        ContinuousRecoButtonText.Text = " Stop Continuous Recognition";
                         isListening = true;
                     }
                     catch (Exception ex)
@@ -308,19 +259,19 @@ namespace hopins
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(addProduct), null);
+           // this.Frame.Navigate(typeof(addProduct), null);
             backButton();
         }
 
         private void btProduct_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(myProduct), null);
+            //this.Frame.Navigate(typeof(myProduct), null);
             backButton();
         }
 
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(orderManagement), null);
+            //this.Frame.Navigate(typeof(orderManagement), null);
             backButton();
 
         }
@@ -332,6 +283,8 @@ namespace hopins
 
         }
 
-
+        
     }
+
 }
+
