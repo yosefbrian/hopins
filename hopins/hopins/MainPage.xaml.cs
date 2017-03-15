@@ -49,7 +49,7 @@ namespace hopins
         {
 
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            string welcome = "welcome to the hopins store. To add new product say product, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
+            string welcome = "welcome to the hopins store. To add new product say input, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
 
             bool permissionGained = await AudioCapturePermissions.RequestMicrophonePermission();
             if (permissionGained)
@@ -109,7 +109,7 @@ namespace hopins
             try
             {
                 this.speechRecognizer = new SpeechRecognizer();
-                var grammar = new[] { "order", "product", "manage", "capture", "home", "exit", "help" };
+                var grammar = new[] { "order", "input", "manage", "capture", "home", "exit", "help" };
                 var playConstraint = new SpeechRecognitionListConstraint(grammar);
                 speechRecognizer.Constraints.Add(playConstraint);
                 speechRecognizer.StateChanged += SpeechRecognizer_StateChanged;
@@ -189,7 +189,7 @@ namespace hopins
                 {
                     resultTextBlock.Visibility = Visibility.Visible;
                     resultTextBlock.Text = args.Result.Text;
-                    if (args.Result.Text == "product")
+                    if (args.Result.Text == "input")
                     {
                         this.Frame.Navigate(typeof(addProduct), null);
                         backButton();
@@ -222,7 +222,7 @@ namespace hopins
                             this.speechRecognizer.Dispose();
                             this.speechRecognizer = null;
                         }
-                        string help = "welcome to the hopins store. To add new product say product, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
+                        string help = "welcome to the hopins store. To add new product say input, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
                         play(help);
                     }
 
@@ -267,12 +267,14 @@ namespace hopins
                         await speechRecognizer.ContinuousRecognitionSession.StartAsync();
                         ContinuousRecoButtonText.Text = " Stop Listening";
                         isListening = true;
+                        media.Stop();
                     }
                     catch (Exception ex)
                     {
                         var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Exception");
                         await messageDialog.ShowAsync();
                     }
+
                 }
             }
             else

@@ -95,6 +95,24 @@
     <Compile Include="addProduct.xaml.cs">
       <DependentUpon>addProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="addProductCategory.xaml.cs">
+      <DependentUpon>addProductCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addProductMaterial.xaml.cs">
+      <DependentUpon>addProductMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addProductName.xaml.cs">
+      <DependentUpon>addProductName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addProductPrice.xaml.cs">
+      <DependentUpon>addProductPrice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addProductSuccess.xaml.cs">
+      <DependentUpon>addProductSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addProductSummary.xaml.cs">
+      <DependentUpon>addProductSummary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -188,6 +206,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="addProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductMaterial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductPrice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductSuccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addProductSummary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

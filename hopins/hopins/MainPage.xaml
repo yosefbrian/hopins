@@ -27,7 +27,7 @@
             <StackPanel>
                 <BitmapIcon UriSource="ms-appx:/Assets/stack.png" Foreground="White" Margin="0,0,0,40" Height="128" HorizontalAlignment="Center" />
                 <TextBlock Text="Order Management" TextAlignment="Center" TextWrapping="Wrap" />
-            </StackPanel>
+            </StackPanel> 
         </Button>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Hopins Store" VerticalAlignment="Top" FontSize="48"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="1092,40,0,0" VerticalAlignment="Top" Width="80" Source="Assets/user.png"/>
@@ -35,7 +35,7 @@
 
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="False" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
+            <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="True" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Symbol="Microphone"/>
                     <TextBlock x:Name="ContinuousRecoButtonText" Text="Start Listening" />

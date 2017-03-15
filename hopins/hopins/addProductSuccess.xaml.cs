@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
-using Windows.Media.Capture;
-using Windows.Media.MediaProperties;
 using Windows.Media.SpeechRecognition;
 using Windows.Media.SpeechSynthesis;
-using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,7 +17,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -33,19 +26,8 @@ namespace hopins
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class addProduct : Page
+    public sealed partial class addProductSuccess : Page
     {
-        public addProduct()
-        {
-            this.InitializeComponent();
-
-            this.InitializeComponent();
-            synthesizer = new SpeechSynthesizer();
-            speechContext = ResourceContext.GetForCurrentView();
-            speechContext.Languages = new string[] { SpeechSynthesizer.DefaultVoice.Language };
-            speechResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("LocalizationTTSResources");
-        }
-
         private CoreDispatcher dispatcher;
         private SpeechRecognizer speechRecognizer;
         private static uint HResultRecognizerNotFound = 0x8004503a;
@@ -53,26 +35,18 @@ namespace hopins
         private ResourceMap speechResourceMap;
         private bool isListening;
         private SpeechSynthesizer synthesizer = new SpeechSynthesizer();
-        Windows.Media.Capture.MediaCapture captureManager;
 
+        public addProductSuccess()
+        {
+            this.InitializeComponent();
+            isListening = false;
+        }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-
-
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            try
-            {
-                await intializeCamera();
-            }
-            catch (Exception ex)
-            {
-                var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Exception");
-                await messageDialog.ShowAsync();
-            }
-            string welcome = "Welcome to the add product page. To capture a photo of your product, say capture";
-
+            string welcome = string.Format("{0}, to go back to home, please say home, to exit, say exit", textBlock.Text);
 
             bool permissionGained = await AudioCapturePermissions.RequestMicrophonePermission();
             if (permissionGained)
@@ -90,36 +64,6 @@ namespace hopins
 
             }
         }
-
-
-        private async Task intializeCamera()
-        {
-            if (captureManager == null)
-            {
-                captureManager = new MediaCapture();
-                await captureManager.InitializeAsync();
-            }
-
-            capturePreview.Source = captureManager;
-            await captureManager.StartPreviewAsync();
-
-            try
-            {
-                play("This is add product page");
-            }
-            catch (System.IO.FileNotFoundException)
-            {
-                var messageDialog = new Windows.UI.Popups.MessageDialog("Media player components unavailable");
-                await messageDialog.ShowAsync();
-            }
-            catch (Exception)
-            {
-                media.AutoPlay = false;
-                var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to synthesize text");
-                await messageDialog.ShowAsync();
-            }
-        }
-
 
         async void media_MediaEnded(object sender, RoutedEventArgs e)
         {
@@ -162,7 +106,7 @@ namespace hopins
             try
             {
                 this.speechRecognizer = new SpeechRecognizer();
-                var grammar = new[] { "order", "input", "manage", "capture", "home", "exit", "help", "back", "next" };
+                var grammar = new[] { "order", "product", "manage", "capture", "home", "exit", "help" };
                 var playConstraint = new SpeechRecognitionListConstraint(grammar);
                 speechRecognizer.Constraints.Add(playConstraint);
                 speechRecognizer.StateChanged += SpeechRecognizer_StateChanged;
@@ -217,8 +161,6 @@ namespace hopins
                 this.speechRecognizer.Dispose();
                 this.speechRecognizer = null;
             }
-
-            await captureManager.StopPreviewAsync();
         }
 
 
@@ -244,37 +186,29 @@ namespace hopins
                 {
                     resultTextBlock.Visibility = Visibility.Visible;
                     resultTextBlock.Text = args.Result.Text;
-                    if (args.Result.Text == "input")
+                    if (args.Result.Text == "product")
                     {
                         this.Frame.Navigate(typeof(addProduct), null);
                         backButton();
                     }
 
-                    else if (args.Result.Text == "manage")
-                    {
-                        // this.Frame.Navigate(typeof(myProduct), null);
-                        backButton();
-                    }
-
-                    else if (args.Result.Text == "order")
-                    {
-                        //this.Frame.Navigate(typeof(myProduct), null);
-                        backButton();
-                    }
-
-                    else if (args.Result.Text == "back" || args.Result.Text == "home")
+                    if (args.Result.Text == "home")
                     {
                         this.Frame.Navigate(typeof(MainPage), null);
                         backButton();
                     }
 
-                    else if (args.Result.Text == "next")
+                    else if (args.Result.Text == "manage")
                     {
-                        this.Frame.Navigate(typeof(addProductName), save);
+                        this.Frame.Navigate(typeof(myProduct), null);
                         backButton();
                     }
 
-
+                    else if (args.Result.Text == "order")
+                    {
+                        this.Frame.Navigate(typeof(myProduct), null);
+                        backButton();
+                    }
                     else if (args.Result.Text == "help")
                     {
 
@@ -291,34 +225,13 @@ namespace hopins
                             this.speechRecognizer.Dispose();
                             this.speechRecognizer = null;
                         }
-                        string help = "welcome to the hopins store. To add new product say product, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
+                        string help = "welcome to the hopins store. To add new product say item, to manage your product say manage, to manage your order say order, to repeat the instruction, say help.";
                         play(help);
                     }
 
-                    //else if (args.Result.Text == "exit")
-                    //{
-                    //    CoreApplication.Exit();
-                    //}
-                    else if (args.Result.Text == "capture")
+                    else if (args.Result.Text == "exit")
                     {
-
-                        if (this.speechRecognizer != null)
-                        {
-                            if (isListening)
-                            {
-                                await this.speechRecognizer.ContinuousRecognitionSession.CancelAsync();
-                                isListening = false;
-                            }
-                            speechRecognizer.ContinuousRecognitionSession.Completed -= ContinuousRecognitionSession_Completed;
-                            speechRecognizer.ContinuousRecognitionSession.ResultGenerated -= ContinuousRecognitionSession_ResultGenerated;
-                            speechRecognizer.StateChanged -= SpeechRecognizer_StateChanged;
-                            this.speechRecognizer.Dispose();
-                            this.speechRecognizer = null;
-                        }
-                        string help = "image captured, if you want to capture another photo, say capture. If you are finish, say next";
-                        play(help);
-                        CapturePhoto_Click(this, new RoutedEventArgs());
-
+                        Application.Current.Exit();
                     }
                     else
                     {
@@ -364,12 +277,14 @@ namespace hopins
                         var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Exception");
                         await messageDialog.ShowAsync();
                     }
+
                 }
             }
             else
             {
                 isListening = false;
                 ContinuousRecoButtonText.Text = " Continuous Recognition";
+
                 resultTextBlock.Visibility = Visibility.Collapsed;
                 if (speechRecognizer.State != SpeechRecognizerState.Idle)
                 {
@@ -390,29 +305,11 @@ namespace hopins
         private void backButton()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
+
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             currentView.BackRequested += backButton_Tapped;
         }
 
-
-        private void btAdd_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(addProduct), null);
-            backButton();
-        }
-
-        private void btProduct_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Frame.Navigate(typeof(myProduct), null);
-            backButton();
-        }
-
-        private void btOrder_Click(object sender, RoutedEventArgs e)
-        {
-            //  this.Frame.Navigate(typeof(orderManagement), null);
-            backButton();
-
-        }
 
         private void backButton_Tapped(object sender, BackRequestedEventArgs e)
         {
@@ -420,56 +317,6 @@ namespace hopins
             if (Frame.CanGoBack) Frame.GoBack();
 
         }
-
-
-        public class imagePath
-        {
-            public string path { get; set; }
-           
-        }
-
-         public imagePath save = new imagePath();
-
-        int i = 0;
-        async private void CapturePhoto_Click(object sender, RoutedEventArgs e)
-        {
-            ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
-            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                "TestPhoto.jpg",
-                CreationCollisionOption.GenerateUniqueName);
-            await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
-            BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
-            save.path = file.Name;
-
-
-            if (i == 0)
-            {
-                imagePreivew.Source = bmpImage;
-                i++;
-            }
-            else if (i == 1)
-            {
-                imagePreivew2.Source = bmpImage;
-                i++;
-            }
-            else if (i == 2)
-            {
-                imagePreivew3.Source = bmpImage;
-                i++;
-            }
-            else
-            {
-                imagePreivew.Source = bmpImage;
-                i = 1;
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            this.Frame.Navigate(typeof(addProductName), save);
-        }
-
 
 
 

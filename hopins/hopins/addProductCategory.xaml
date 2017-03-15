@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="hopins.addProductCategory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hopins"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#E1E1E1">
+        <MediaElement x:Name="media" AutoPlay="False" MediaEnded="media_MediaEnded"/>
+        <TextBlock x:Name="question" HorizontalAlignment="Left" Margin="240,196,0,0" TextWrapping="Wrap" Text="What is the type or category of this product?" VerticalAlignment="Top" FontSize="40"/>
+        <TextBox x:Name="textBox" IsEnabled="True" HorizontalAlignment="Left" Margin="341,298,0,0" TextWrapping="Wrap" Text="type of the product" VerticalAlignment="Top" Height="52" Width="598" FontSize="24" TextAlignment="Center"/>
+        <Button x:Name="next" Content="Next" IsEnabled="True" HorizontalAlignment="Left" Margin="585,385,0,0" VerticalAlignment="Top" Height="54" Width="110" Click="next_Click"/>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="False" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Microphone"/>
+                    <TextBlock x:Name="ContinuousRecoButtonText" Text="Start Listening" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="130, 0, 0, 0">
+            <TextBlock x:Name="resultTextBlock" Text="wait until the instruction complete..."  HorizontalAlignment="Left" Margin="10,648,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        </StackPanel>
+        <TextBlock x:Name="textBlock" Visibility="Collapsed" HorizontalAlignment="Left" Margin="939,528,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" Visibility="Collapsed" HorizontalAlignment="Left" Margin="1082,477,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

@@ -72,7 +72,6 @@ namespace cobo_meneh
         }
 
 
-
         private async void play(string welcome)
         {
             try
@@ -186,6 +185,13 @@ namespace cobo_meneh
                 {
                     resultTextBlock.Visibility = Visibility.Visible;
                     resultTextBlock.Text = args.Result.Text;
+
+                    if (args.Result.Text == "product")
+                    {
+                        this.Frame.Navigate(typeof(addProduct), null);
+                        backButton();
+                    }
+
                 });
             }
 
@@ -259,7 +265,7 @@ namespace cobo_meneh
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-           // this.Frame.Navigate(typeof(addProduct), null);
+           this.Frame.Navigate(typeof(addProduct), null);
             backButton();
         }
 

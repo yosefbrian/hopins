@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="hopins.addProductSummary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hopins"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#E1E1E1">
+        <MediaElement x:Name="media" AutoPlay="False" Margin="862,360,417,359" MediaEnded="media_MediaEnded"/>
+        <TextBlock x:Name="productName" HorizontalAlignment="Left" Margin="913,207,0,0" TextWrapping="Wrap" Text="Product Name" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productCategory" HorizontalAlignment="Left" Margin="913,260,0,0" TextWrapping="Wrap" Text="Product Category" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productMaterial" HorizontalAlignment="Left" Margin="917,316,0,0" TextWrapping="Wrap" Text="Product Material" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productName_Copy" HorizontalAlignment="Left" Margin="560,207,0,0" TextWrapping="Wrap" Text="Product Name        :" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productCategory_Copy" HorizontalAlignment="Left" Margin="560,260,0,0" TextWrapping="Wrap" Text="Product Category   :" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productMaterial_Copy" HorizontalAlignment="Left" Margin="560,316,0,0" TextWrapping="Wrap" Text="Product Material    :" VerticalAlignment="Top" FontSize="36" SelectionChanged="productMaterial_Copy_SelectionChanged"/>
+        <TextBlock x:Name="productName_Copy1" HorizontalAlignment="Left" Margin="463,44,0,0" TextWrapping="Wrap" Text="Summary" VerticalAlignment="Top" FontSize="60"/>
+        <TextBlock x:Name="textBlock" Visibility="Collapsed" HorizontalAlignment="Left" Margin="1038,668,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="319" Margin="130,213,0,0" VerticalAlignment="Top" Width="319"/>
+
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Button x:Name="btnPublish" Content="Publish" HorizontalAlignment="Right" Margin="1074,688,0,0" VerticalAlignment="Bottom" Click="btnPublish_Click"/>
+        </StackPanel>
+            <TextBlock x:Name="productPrice" HorizontalAlignment="Left" Margin="911,374,0,0" TextWrapping="Wrap" Text="Product Price" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productMaterial_Copy2" HorizontalAlignment="Left" Margin="558,374,0,0" TextWrapping="Wrap" Text="Product Price          :" VerticalAlignment="Top" FontSize="36"/>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="True" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Microphone"/>
+                    <TextBlock x:Name="ContinuousRecoButtonText" Text="Start Listening" />
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="130, 0, 0, 0">
+            <TextBlock x:Name="resultTextBlock" Text="wait until the instruction complete..."  HorizontalAlignment="Left" Margin="10,648,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

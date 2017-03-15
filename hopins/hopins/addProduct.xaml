@@ -5,7 +5,7 @@
     xmlns:local="using:hopins"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="Page_Loaded">
+    mc:Ignorable="d">
 
 
     <Grid Background="#E1E1E1">
@@ -34,15 +34,34 @@
 
 
 
-            <StackPanel Orientation="Horizontal">
-                <!--<Button Click="InitCamera_Click" Content="Initialize Camera" />
-                <Button Click="StartCapturePreview_Click" Content="Start Capture Preview" />-->
-                <Button Click="CapturePhoto_Click" Content="C"/>
-                <!--<Button Click="StopCapturePreview_Click" Content="Stop Capture Preview" />-->
-            </StackPanel>
+
             <MediaElement x:Name="media" AutoPlay="False" MediaEnded="media_MediaEnded"/>
         </Grid>
-        <TextBlock x:Name="Test" HorizontalAlignment="Left" Margin="969,652,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="18" Width="97"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 40">
+            <Button Click="CapturePhoto_Click" Content="Capture" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="Next" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <CompositeTransform Rotation="0.61"/>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="False" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Microphone"/>
+                    <TextBlock x:Name="ContinuousRecoButtonText" Text="Start Listening" />
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="130, 0, 0, 0">
+            <TextBlock x:Name="resultTextBlock" Text="wait until the instruction complete..."  HorizontalAlignment="Left" Margin="10,648,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        </StackPanel>
+
 
     </Grid>
 </Page>
