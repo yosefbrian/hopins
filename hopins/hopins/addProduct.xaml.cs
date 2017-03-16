@@ -103,21 +103,21 @@ namespace hopins
             capturePreview.Source = captureManager;
             await captureManager.StartPreviewAsync();
 
-            try
-            {
-                play("This is add product page");
-            }
-            catch (System.IO.FileNotFoundException)
-            {
-                var messageDialog = new Windows.UI.Popups.MessageDialog("Media player components unavailable");
-                await messageDialog.ShowAsync();
-            }
-            catch (Exception)
-            {
-                media.AutoPlay = false;
-                var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to synthesize text");
-                await messageDialog.ShowAsync();
-            }
+            //try
+            //{
+            //    play("This is add product page");
+            //}
+            //catch (System.IO.FileNotFoundException)
+            //{
+            //    var messageDialog = new Windows.UI.Popups.MessageDialog("Media player components unavailable");
+            //    await messageDialog.ShowAsync();
+            //}
+            //catch (Exception)
+            //{
+            //    media.AutoPlay = false;
+            //    var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to synthesize text");
+            //    await messageDialog.ShowAsync();
+            //}
         }
 
 
