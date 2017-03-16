@@ -10,8 +10,8 @@
     <Grid Background="#E1E1E1">
         <MediaElement x:Name="media" AutoPlay="False" MediaEnded="media_MediaEnded"/>
         <TextBlock x:Name="question" HorizontalAlignment="Left" Margin="240,196,0,0" TextWrapping="Wrap" Text="What is the type or category of this product?" VerticalAlignment="Top" FontSize="40"/>
-        <TextBox x:Name="textBox" IsEnabled="True" HorizontalAlignment="Left" Margin="341,298,0,0" TextWrapping="Wrap" Text="type of the product" VerticalAlignment="Top" Height="52" Width="598" FontSize="24" TextAlignment="Center"/>
-        <Button x:Name="next" Content="Next" IsEnabled="True" HorizontalAlignment="Left" Margin="585,385,0,0" VerticalAlignment="Top" Height="54" Width="110" Click="next_Click"/>
+        <TextBox x:Name="textBox" IsEnabled="True" HorizontalAlignment="Left" Margin="240,298,0,0" TextWrapping="Wrap" Text="Type of the product" VerticalAlignment="Top" Height="52" Width="789" FontSize="24" TextAlignment="Center"/>
+        <Button x:Name="next" Content="Next" IsEnabled="True" HorizontalAlignment="Left" Margin="819,394,0,0" VerticalAlignment="Top" Height="54" Width="210" Click="next_Click" Background="#737373" Foreground="White"/>
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="False" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">

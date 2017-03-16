@@ -143,6 +143,12 @@
     <Content Include="Assets\hopins.scale-150.png" />
     <Content Include="Assets\hopins.scale-200.png" />
     <Content Include="Assets\hopins.scale-400.png" />
+    <Content Include="Assets\mainan 1.jpg" />
+    <Content Include="Assets\mainan 2.jpg" />
+    <Content Include="Assets\mainan 3.jpg" />
+    <Content Include="Assets\mainan 4.jpg" />
+    <Content Include="Assets\mainan 5.jpg" />
+    <Content Include="Assets\mainan 6.jpg" />
     <Content Include="Assets\product.jpg" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />

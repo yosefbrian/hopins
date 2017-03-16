@@ -12,37 +12,37 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="My Products" VerticalAlignment="Top" FontSize="48"/>
         <GridView x:Name="gridView" HorizontalAlignment="Center" Margin="110,140,110,0" VerticalAlignment="Top" Width="1041" Height="458" ScrollViewer.VerticalScrollBarVisibility="Visible" Padding="50,20,-5,10" ScrollViewer.HorizontalScrollBarVisibility="Visible" ReorderMode="Enabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
             <Grid>
-                <Image x:Name="image" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock x:Name="productName" Text="Sample"/>
+                <Image x:Name="image" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 1.jpg"/>
+                <TextBlock x:Name="productName" Text="Elephant Puzzel" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image1" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image1" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 2.jpg"/>
+                <TextBlock x:Name="productName2" Text="Rabbit Puzzel" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image2" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image2" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 3.jpg"/>
+                <TextBlock x:Name="productName3" Text="Pyramid Ring" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image3" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image3" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 4.jpg"/>
+                <TextBlock x:Name="productName4" Text="Semar Puzzel" Padding="20"/>
             </Grid>
 
             <Grid>
-                <Image x:Name="image4" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image4" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 5.jpg"/>
+                <TextBlock x:Name="productName5" Text="Pig Puzzel" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image5" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image5" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 6.jpg"/>
+                <TextBlock x:Name="productName6" Text="Dog Puzzel" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image6" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image6" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 1.jpg"/>
+                <TextBlock x:Name="productName7" Text="Elephant Puzzel" Padding="20"/>
             </Grid>
             <Grid>
-                <Image x:Name="image7" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/product.jpg"/>
-                <TextBlock Text="Sample"/>
+                <Image x:Name="image7" Height="260" Width="230" HorizontalAlignment="Center" Source="Assets/mainan 2.jpg"/>
+                <TextBlock x:Name="productName8" Text="Rabbit Puzzel" Padding="20"/>
             </Grid>
 
         </GridView>

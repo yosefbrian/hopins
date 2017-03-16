@@ -12,21 +12,21 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Order Management" VerticalAlignment="Top" FontSize="48"/>
         <GridView x:Name="gridView" HorizontalAlignment="Center" Margin="110,140,110,0" VerticalAlignment="Top" Width="1041" Height="458" ScrollViewer.VerticalScrollBarVisibility="Visible" Padding="50,20,-5,10" ScrollViewer.HorizontalScrollBarVisibility="Visible" ReorderMode="Enabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
             <Grid Width="920">
-                <Image x:Name="image" Height="200" Width="230" HorizontalAlignment="Left" Margin="10,10,10,10" Source="Assets/product.jpg"/>
-                <TextBlock Foreground="#008000" Text="INV/2018276536/II/XXI/72653916" Margin="250,30,10,10" FontSize="20" FontWeight="Bold" />
-                <TextBlock Text="Transaction Date : January 08 2017   | Total : $ 10,5" Margin="250,60,10,10" FontSize="20"  />
-                <Grid Margin="250,90,10,10" Background="#C3EBCD">
+                <Image x:Name="image" Height="200" Width="230" HorizontalAlignment="Left" Margin="10,10,10,10" Source="Assets/mainan 1.jpg"/>
+                <TextBlock Foreground="#008000" Text="INV/2018276536/II/XXI/72653916" Margin="210,30,10,10" FontSize="20" FontWeight="Bold" />
+                <TextBlock Text="Transaction Date : January 08 2017   | Total : $ 10,5" Margin="210,60,10,10" FontSize="20"  />
+                <Grid Margin="210,90,10,10" Background="#C3EBCD">
                     <TextBlock FontSize="20" Margin="10,10,10,10" Text="Buyer's Name : Misbach Imaduddin"/>
                     <TextBlock FontSize="20" Margin="10,40,10,10" Text="Buyer's Address : Jl. Gadjah Mada H10, Yogyakarta, Indonesia"/>
                 </Grid>
             </Grid>
             <Grid Width="920">
-                <Image x:Name="image1" Height="200" Width="230" HorizontalAlignment="Left" Margin="10,10,10,10" Source="Assets/product.jpg"/>
-                <TextBlock Foreground="#008000" Text="INV/2018276536/II/XXI/72653916" Margin="250,30,10,10" FontSize="20" FontWeight="Bold" />
-                <TextBlock Text="Transaction Date : January 08 2017   | Total : $ 10,5" Margin="250,60,10,10" FontSize="20"  />
-                <Grid Margin="250,90,10,10" Background="#C3EBCD">
-                    <TextBlock FontSize="20" Margin="10,10,10,10" Text="Buyer's Name : Misbach Imaduddin"/>
-                    <TextBlock FontSize="20" Margin="10,40,10,10" Text="Buyer's Address : Jl. Gadjah Mada H10, Yogyakarta, Indonesia"/>
+                <Image x:Name="image1" Height="200" Width="230" HorizontalAlignment="Left" Margin="10,10,10,10" Source="Assets/mainan 2.jpg"/>
+                <TextBlock Foreground="#008000" Text="INV/2018276536/II/XXI/72667854" Margin="210,30,10,10" FontSize="20" FontWeight="Bold" />
+                <TextBlock Text="Transaction Date : January 21 2017   | Total : $ 50,5" Margin="210,60,10,10" FontSize="20"  />
+                <Grid Margin="210,90,10,10" Background="#C3EBCD">
+                    <TextBlock FontSize="20" Margin="10,10,10,10" Text="Buyer's Name : Yosef Brian"/>
+                    <TextBlock FontSize="20" Margin="10,40,10,10" Text="Buyer's Address : Blok C77, Sleman Regency, Yogyakarta, Indonesia"/>
                 </Grid>
                 
             </Grid>

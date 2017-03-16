@@ -9,22 +9,27 @@
 
     <Grid Background="#E1E1E1">
         <MediaElement x:Name="media" AutoPlay="False" Margin="862,360,417,359" MediaEnded="media_MediaEnded"/>
+        <StackPanel></StackPanel>
         <TextBlock x:Name="productName" HorizontalAlignment="Left" Margin="913,207,0,0" TextWrapping="Wrap" Text="Product Name" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productCategory" HorizontalAlignment="Left" Margin="913,260,0,0" TextWrapping="Wrap" Text="Product Category" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productMaterial" HorizontalAlignment="Left" Margin="917,316,0,0" TextWrapping="Wrap" Text="Product Material" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="productPrice" HorizontalAlignment="Left" Margin="911,374,0,0" TextWrapping="Wrap" Text="Product Price" VerticalAlignment="Top" FontSize="36"/>
+        
         <TextBlock x:Name="productName_Copy" HorizontalAlignment="Left" Margin="560,207,0,0" TextWrapping="Wrap" Text="Product Name        :" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productCategory_Copy" HorizontalAlignment="Left" Margin="560,260,0,0" TextWrapping="Wrap" Text="Product Category   :" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productMaterial_Copy" HorizontalAlignment="Left" Margin="560,316,0,0" TextWrapping="Wrap" Text="Product Material    :" VerticalAlignment="Top" FontSize="36" SelectionChanged="productMaterial_Copy_SelectionChanged"/>
-        <TextBlock x:Name="productName_Copy1" HorizontalAlignment="Left" Margin="463,44,0,0" TextWrapping="Wrap" Text="Summary" VerticalAlignment="Top" FontSize="60"/>
+        <TextBlock x:Name="productMaterial_Copy2" HorizontalAlignment="Left" Margin="558,374,0,0" TextWrapping="Wrap" Text="Product Price          :" VerticalAlignment="Top" FontSize="36"/>
+        
+        <TextBlock x:Name="productName_Copy1" HorizontalAlignment="Left" Margin="41,40,0,0" TextWrapping="Wrap" Text="Summary" VerticalAlignment="Top" FontSize="48"/>
         <TextBlock x:Name="textBlock" Visibility="Collapsed" HorizontalAlignment="Left" Margin="1038,668,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="319" Margin="130,213,0,0" VerticalAlignment="Top" Width="319"/>
 
 
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-        <Button x:Name="btnPublish" Content="Publish" HorizontalAlignment="Right" Margin="1074,688,0,0" VerticalAlignment="Bottom" Click="btnPublish_Click"/>
-        </StackPanel>
-            <TextBlock x:Name="productPrice" HorizontalAlignment="Left" Margin="911,374,0,0" TextWrapping="Wrap" Text="Product Price" VerticalAlignment="Top" FontSize="36"/>
-        <TextBlock x:Name="productMaterial_Copy2" HorizontalAlignment="Left" Margin="558,374,0,0" TextWrapping="Wrap" Text="Product Price          :" VerticalAlignment="Top" FontSize="36"/>
+        
+        
+        
+        <Button x:Name="btnPublish" Content="Publish" HorizontalAlignment="Right" Margin="0,0,99,188" VerticalAlignment="Bottom" Click="btnPublish_Click" Height="54" Width="210" Background="#737373" Foreground="White"/>
+        
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Button x:Name="btnContinuousRecognize" Click="ContinuousRecognize_Click" IsEnabled="True" Background="LimeGreen" Margin="0,0,0,0" Foreground="White">
