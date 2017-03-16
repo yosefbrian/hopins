@@ -9,7 +9,7 @@
 
     <Grid Background="#E1E1E1">
         <MediaElement x:Name="media" AutoPlay="False" Margin="862,360,417,359" MediaEnded="media_MediaEnded"/>
-        <StackPanel></StackPanel>
+        
         <TextBlock x:Name="productName" HorizontalAlignment="Left" Margin="913,207,0,0" TextWrapping="Wrap" Text="Product Name" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productCategory" HorizontalAlignment="Left" Margin="913,260,0,0" TextWrapping="Wrap" Text="Product Category" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="productMaterial" HorizontalAlignment="Left" Margin="917,316,0,0" TextWrapping="Wrap" Text="Product Material" VerticalAlignment="Top" FontSize="36"/>
@@ -43,6 +43,7 @@
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="130, 0, 0, 0">
             <TextBlock x:Name="resultTextBlock" Text="wait until the instruction complete..."  HorizontalAlignment="Left" Margin="10,648,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
         </StackPanel>
+        <ProgressRing x:Name="yeah" HorizontalAlignment="Left" Margin="1045,556,0,0" VerticalAlignment="Top" Height="77" Width="77" IsActive="False" />
 
 
     </Grid>

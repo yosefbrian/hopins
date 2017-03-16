@@ -83,7 +83,7 @@ namespace hopins
             StorageFile file = await myfolder.GetFileAsync(fileName);
             image.Source = new BitmapImage(new Uri(file.Path));
 
-            string summary = string.Format("Summary : the name of this product is {0}, the type of this product is {1}, the type of material of this product is {2}, the price of this product is {3} dollar, if you want to publish, say publish", productName.Text, productCategory.Text, productMaterial.Text, productPrice.Text);
+            string summary = string.Format("Summary : the name of this product is {0}, the type of this product is {1}, the material of this product is {2}, the price of this product is {3} dollar, if you want to publish, say publish", productName.Text, productCategory.Text, productMaterial.Text, productPrice.Text);
             play(summary);
         }
 
@@ -126,7 +126,9 @@ namespace hopins
 
         private async void btnPublish_Click(object sender, RoutedEventArgs e)
         {
-            try { 
+            try {
+
+                yeah.IsActive = true;
 
             string fileName = textBlock.Text;
             StorageFolder myfolder = ApplicationData.Current.LocalFolder;
