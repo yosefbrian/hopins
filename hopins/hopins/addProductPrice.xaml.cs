@@ -132,7 +132,7 @@ namespace hopins
                         {
                             await disableSpeech();
                             textBox.IsEnabled = false;
-                            string help = string.Format("The price of your product is {0} dollar, if the type is correct, say next, if you want to repeat, say undo", productName);
+                            string help = string.Format("The price of your product is {0} dollar, if the price is correct, say next, if you want to repeat, say undo", productName);
                             play(help);
                         }
                     }
